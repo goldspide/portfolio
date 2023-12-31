@@ -24,7 +24,7 @@ const Footer = () => {
   const handleSubmit = () => {
     setLoading(true);
     const contact = {
-      _type: "contact",
+      _type: 'contact',
       name: name,
       email: email,
       message: message,
@@ -32,7 +32,8 @@ const Footer = () => {
     client.create(contact).then(() => {
       setLoading(false);
       setIsFormSubmitted(true);
-    });
+    })
+    console.log(`${process.env.VITE_REACT_APP_SANITY_PROJECT_ID}`)
   };
 
   return (
@@ -41,8 +42,8 @@ const Footer = () => {
       <div className="app__footer-cards">
         <div className="app__footer-card">
           <img src={images.email} alt="email" />
-          <a href="mailto:raoulbonsso@gmail.com" className="p-text">
-            {" "}
+          <a href="mailto:raoulbonsso@gmail.com" className="p-text"> 
+            {"  "}
             raoulbonsso@gmail.com
           </a>
         </div>
@@ -85,7 +86,7 @@ const Footer = () => {
               className="p-text"
               placeholder="Your Message"
               value={message}
-              name={message}
+              name="message"
               onChange={handleChangeInput}
             />
           </div>
@@ -96,6 +97,7 @@ const Footer = () => {
       ) : (
         <div>
           <h3 className="head-text"> Thank you for getting in touch!</h3>
+          
         </div>
       )}
     </>
